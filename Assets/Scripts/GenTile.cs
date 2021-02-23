@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
 
+
 public class GenTile : MonoBehaviour
 {
-
-
+    
     [Range(0, 100)]
     public int iniChance;
     [Range(1, 8)]
@@ -31,6 +31,7 @@ public class GenTile : MonoBehaviour
 
     public void doSim(int nu)
     {
+        
         clearMap(false);
         width = tmpSize.x;
         height = tmpSize.y;
@@ -158,6 +159,11 @@ public class GenTile : MonoBehaviour
         {
             clearMap(true);
         }
+    }
+
+    void Start()
+    {
+        doSim(numR);
     }
 
 

@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b53b1721bffc140a6f4b74881977d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iniChance: 27
+  iniChance: 26
   birthLimit: 3
   deathLimit: 2
   numR: 18
