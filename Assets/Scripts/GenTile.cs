@@ -25,6 +25,7 @@ public class GenTile : MonoBehaviour
     public Tilemap botMap;
     public Tile topTile;
     public Tile botTile;
+    public Tile grassTile;
 
     int width;
     int height;
@@ -53,8 +54,15 @@ public class GenTile : MonoBehaviour
             for (int y = 0; y < height; y++)
             {
                 if (terrainMap[x, y] == 1)
+                { 
                     topMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), topTile);
+                    if (y <= 35 &&terrainMap[x, y - 1] == 0)
+                    {
+                        topMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), grassTile);
+                    }
+                }
                 botMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), botTile);
+
             }
         }
 
@@ -70,7 +78,7 @@ public class GenTile : MonoBehaviour
                 
                 terrainMap[x, y] = Random.Range(1, 101) < iniChance ? 1 : 0;
                 if (y == 35)
-                { terrainMap[x, y] = Random.Range(1, 35) < iniChance ? 1 : 0; }
+                { terrainMap[x, y] = Random.Range(1, 33) < iniChance ? 1 : 0; }
             }
 
         }

@@ -270,12 +270,13 @@ MonoBehaviour:
   iniChance: 26
   birthLimit: 3
   deathLimit: 2
-  numR: 18
+  numR: 19
   tmpSize: {x: 1000, y: 100, z: 0}
   topMap: {fileID: 314037341}
   botMap: {fileID: 31109499}
   topTile: {fileID: 11400000, guid: fd0507864f19bef41b5546a10f3d5af0, type: 2}
   botTile: {fileID: 11400000, guid: 92ca0fa5cc790284ba562d03f44e19ba, type: 2}
+  grassTile: {fileID: 11400000, guid: a9c86907d3faab14297bff4f0f810024, type: 2}
 --- !u!4 &286243526
 Transform:
   m_ObjectHideFlags: 0
@@ -457,10 +458,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 40.02
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -484,7 +485,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
