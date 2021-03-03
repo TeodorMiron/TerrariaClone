@@ -1,0 +1,3 @@
+Random teren generation using noise function to create caves
+Basic texture for dirt sqares and grass sqares
+Assign corect texture for sqares in tilemap

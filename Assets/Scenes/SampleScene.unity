@@ -267,10 +267,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b53b1721bffc140a6f4b74881977d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iniChance: 26
+  iniChance: 27
   birthLimit: 3
   deathLimit: 2
-  numR: 19
+  numR: 18
   tmpSize: {x: 1000, y: 100, z: 0}
   topMap: {fileID: 314037341}
   botMap: {fileID: 31109499}

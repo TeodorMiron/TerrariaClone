@@ -62,6 +62,7 @@ public class GenTile : MonoBehaviour
                     }
                 }
                 botMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), botTile);
+              
 
             }
         }
