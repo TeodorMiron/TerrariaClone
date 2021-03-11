@@ -1,3 +1,0 @@
-Add game character
-Movement controls to character
-Place and Remove blocks 
