@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
+using System;
+
 
 
 public class GenTile : MonoBehaviour
@@ -26,6 +28,7 @@ public class GenTile : MonoBehaviour
     public Tile topTile;
     public Tile botTile;
     public Tile grassTile;
+    public BoxCollider2D colider;
 
     int width;
     int height;
@@ -56,16 +59,19 @@ public class GenTile : MonoBehaviour
                 if (terrainMap[x, y] == 1)
                 { 
                     topMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), topTile);
+                    
                     if (y <= 35 &&terrainMap[x, y - 1] == 0)
                     {
                         topMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), grassTile);
+
                     }
                 }
                 botMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), botTile);
-              
 
             }
         }
+
+        
 
 
     }
@@ -77,9 +83,9 @@ public class GenTile : MonoBehaviour
             for (int y = 20; y < height; y++)
             {
                 
-                terrainMap[x, y] = Random.Range(1, 101) < iniChance ? 1 : 0;
+                terrainMap[x, y] = UnityEngine.Random.Range(1, 101) < iniChance ? 1 : 0;
                 if (y == 35)
-                { terrainMap[x, y] = Random.Range(1, 33) < iniChance ? 1 : 0; }
+                { terrainMap[x, y] = UnityEngine.Random.Range(1, 33) < iniChance ? 1 : 0; }
             }
 
         }
@@ -159,14 +165,37 @@ public class GenTile : MonoBehaviour
 
     void Update()
     {
+        float xf, yf;
+        int x, y;
         if (Input.GetMouseButtonDown(0))
         {
-            doSim(numR);
+           
+            Vector3 poz = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if(poz.y>0)
+            {
+                if(poz.x>0)
+                    topMap.SetTile(new Vector3Int((int)poz.x, (int)poz.y, 0), null);
+                else
+                     topMap.SetTile(new Vector3Int((int)poz.x-1, (int)poz.y, 0), null);
+            }    
+            else
+            {
+                if (poz.x > 0)
+                    topMap.SetTile(new Vector3Int((int)poz.x, (int)poz.y-1 , 0), null);
+                else
+                    topMap.SetTile(new Vector3Int((int)poz.x - 1, (int)poz.y-1 , 0), null);
+            }
+            
+
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            clearMap(true);
+            Vector3 poz = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (poz.x > 0)
+                topMap.SetTile(new Vector3Int((int)poz.x, (int)poz.y, 0), grassTile);
+            else
+                topMap.SetTile(new Vector3Int((int)poz.x - 1, (int)poz.y, 0), grassTile);
         }
     }
 
